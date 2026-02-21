@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ project.name }} | Kadari Youcef</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        .project-detail-hero {
+            padding: 120px 0 60px;
+            background: var(--bg-alt);
+            border-bottom: 1px solid var(--card-border);
+            text-align: center;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: var(--accent);
+        }
+
+        .detail-card {
+            background: var(--card);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: -80px;
+            box-shadow: var(--shadow);
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        @media (min-width: 992px) {
+            .detail-card {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .detail-img-wrap {
+            height: 400px;
+            background: var(--bg-alt);
+            overflow: hidden;
+        }
+
+        .detail-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .detail-content {
+            padding: 40px;
+        }
+
+        .detail-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .detail-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        .detail-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .detail-section {
+            margin-bottom: 30px;
+        }
+
+        .detail-section h4 {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
+
+        .feature-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text);
+            font-size: 0.95rem;
+        }
+
+        .feature-item::before {
+            content: '✓';
+            color: var(--accent-3);
+            font-weight: bold;
+        }
+
+        .tech-languages {
+            font-family: 'Fira Code', monospace;
+            background: rgba(108, 99, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar scrolled">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">KY<span>.</span></a>
+            <a href="/#projects" class="back-btn">← Back to Projects</a>
+        </div>
+    </nav>
+
+    <section class="project-detail-hero">
+        <div class="container">
+            <h1 class="hero-name">{{ project.name }}</h1>
+            <p class="hero-subtitle">{{ project.short_desc }}</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="detail-card">
+            <div class="detail-img-wrap">
+                <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="{{ project.name }}"
+                    class="detail-img">
+            </div>
+            <div class="detail-content">
+                <div class="detail-tags">
+                    {% for tag in project.tags %}
+                    <span class="tag">{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                <h2 class="detail-title">{{ project.icon }} About the Project</h2>
+                <p class="detail-desc">{{ project.full_desc }}</p>
+
+                <div class="detail-section">
+                    <h4>Key Features</h4>
+                    <ul class="feature-list">
+                        {% for feature in project.features %}
+                        <li class="feature-item">{{ feature }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <div class="detail-section">
+                    <h4>Development Languages</h4>
+                    <div class="tech-languages">
+                        {{ project.languages }}
+                    </div>
+                </div>
+
+                <div class="hero-cta" style="justify-content: flex-start; margin-top: 40px;">
+                    <a href="#" class="btn btn-primary"><span>🐙</span> View Source Code</a>
+                    <a href="#" class="btn btn-outline">Live Demo</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer" style="margin-top: 80px;">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">KY<span>.</span></div>
+                <p class="footer-copy">© 2026 Kadari Youcef. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/share/18GdhFpFFv/" target="_blank" aria-label="Facebook"
+                        class="social-icon" rel="noopener">👤</a>
+                    <a href="https://github.com/your-github" target="_blank" aria-label="GitHub" class="social-icon"
+                        rel="noopener">🐙</a>
+                    <a href="https://www.linkedin.com/in/your-linkedin" target="_blank" aria-label="LinkedIn"
+                        class="social-icon" rel="noopener">💼</a>
+                    <a href="mailto:kadariyoucef@gmail.com" aria-label="Email" class="social-icon">📧</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

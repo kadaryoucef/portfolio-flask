@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Kadari Youcef – Flutter Developer & Backend Engineer. Portfolio showcasing mobile apps, Python backends, and more." />
+    <title>Kadari Youcef | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="smooth-scroll">
+    <!-- Premium UI Layer -->
+    <div class="cursor-follower" id="cursorFollower"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+    <canvas id="particleCanvas"></canvas>
+    <div class="bg-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <!-- ========== NAVBAR ========== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">KY<span>.</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-container">
+            <div class="hero-avatar-wrap">
+                <div class="avatar-ring">
+                    <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Kadari Youcef"
+                        class="hero-avatar" id="heroAvatar">
+                </div>
+                <div class="avatar-status"></div>
+            </div>
+            <div class="hero-text">
+                <p class="hero-greeting">👋 Hello, I'm</p>
+                <h1 class="hero-name">Kadari Youcef</h1>
+                <div class="hero-typewriter">
+                    <span class="typewriter-prefix">I build </span>
+                    <span class="typewriter-text" id="typewriterText"></span>
+                    <span class="typewriter-cursor">|</span>
+                </div>
+                <p class="hero-subtitle">Full-Stack Mobile & Web Developer crafting beautiful, scalable applications
+                    with Flutter, Python, and modern backend technologies.</p>
+                <div class="hero-cta">
+                    <a href="{{ url_for('static', filename='pdf/CV kadariyoucef.pdf') }}" download
+                        class="btn btn-primary">
+                        <span>⬇</span> Download CV
+                    </a>
+                    <a href="#projects" class="btn btn-outline">View Work</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <div class="scroll-mouse">
+                <div class="scroll-dot"></div>
+            </div>
+            <span>Scroll down</span>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Get to know me</span>
+                <h2>About Me</h2>
+            </div>
+            <div class="about-grid">
+                <div class="about-card reveal">
+                    <div class="about-icon">👨‍💻</div>
+                    <h3>Who I Am</h3>
+                    <p>I'm a passionate Full-Stack Developer specializing in <strong>Flutter mobile development</strong>
+                        and <strong>Python/Flask backends</strong>. I love turning complex problems into elegant,
+                        user-friendly applications.</p>
+                </div>
+                <div class="about-card reveal" style="animation-delay:.1s">
+                    <div class="about-icon">🎯</div>
+                    <h3>What I Do</h3>
+                    <p>From beautiful cross-platform mobile apps to robust REST APIs and database design with
+                        <strong>PostgreSQL</strong> and <strong>Firebase</strong>, I cover the full development
+                        spectrum.
+                    </p>
+                </div>
+                <div class="about-card reveal" style="animation-delay:.2s">
+                    <div class="about-icon">🌍</div>
+                    <h3>My Goals</h3>
+                    <p>I aim to build products that make a real-world impact — from agriculture tools for farmers to
+                        cooperative management systems and language learning platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SKILLS ========== -->
+    <section class="section section-alt" id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">What I work with</span>
+                <h2>Skills</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skills-column reveal">
+                    <h3 class="skills-col-title">Mobile & Frontend</h3>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Flutter / Dart</span><span>90%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="90"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>HTML / CSS / JS</span><span>82%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="82"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Responsive Design</span><span>85%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-column reveal" style="animation-delay:.15s">
+                    <h3 class="skills-col-title">Backend & Databases</h3>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Python / Flask</span><span>88%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="88"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>PostgreSQL</span><span>80%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Firebase</span><span>75%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>SQLite</span><span>83%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="83"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skills-column reveal" style="animation-delay:.3s">
+                    <h3 class="skills-col-title">Tools & Others</h3>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Git / GitHub</span><span>85%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>REST APIs</span><span>87%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="87"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>UI/UX Design</span><span>72%</span></div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="72"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== PROJECTS ========== -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">What I've built</span>
+                <h2>Projects</h2>
+                <div class="filter-bar">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="flutter">Flutter</button>
+                    <button class="filter-btn" data-filter="python">Python</button>
+                    <button class="filter-btn" data-filter="web">Web</button>
+                </div>
+            </div>
+            <div class="projects-grid">
+
+                <!-- Taxi App -->
+                <div class="project-card reveal" data-category="flutter">
+                    <a href="{{ url_for('project_detail', project_id='taxi_app') }}" class="project-link">
+                        <div class="project-img-wrap">
+                            <img src="{{ url_for('static', filename='images/taxi_app.png') }}" alt="Taxi App"
+                                class="project-image">
+                            <div class="project-overlay">
+                                <span class="overlay-btn"><span>🔍</span> View Details</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span
+                                class="tag">Maps API</span></div>
+                        <h3><a href="{{ url_for('project_detail', project_id='taxi_app') }}">🚖 Taxi App</a></h3>
+                        <p>A full-featured ride-hailing application built with Flutter and Firebase. Includes real-time
+                            location tracking, driver matching, trip history, and in-app payments — similar to
+                            Uber/Bolt.</p>
+                    </div>
+                </div>
+
+                <!-- Language Learning -->
+                <div class="project-card reveal" data-category="flutter" style="animation-delay:.1s">
+                    <a href="{{ url_for('project_detail', project_id='language_app') }}" class="project-link">
+                        <div class="project-img-wrap">
+                            <img src="{{ url_for('static', filename='images/language_app.png') }}"
+                                alt="Language Learning App" class="project-image">
+                            <div class="project-overlay">
+                                <span class="overlay-btn"><span>🔍</span> View Details</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Flutter</span><span class="tag">SQLite</span><span
+                                class="tag">TTS</span></div>
+                        <h3><a href="{{ url_for('project_detail', project_id='language_app') }}">📚 Language App</a>
+                        </h3>
+                        <p>An interactive language-learning app with lessons, quizzes, vocabulary flashcards,
+                            pronunciation via text-to-speech, and gamified progress tracking to keep users motivated.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Quran App -->
+                <div class="project-card reveal" data-category="flutter" style="animation-delay:.2s">
+                    <a href="{{ url_for('project_detail', project_id='quran_app') }}" class="project-link">
+                        <div class="project-img-wrap">
+                            <img src="{{ url_for('static', filename='images/quran_ap.png') }}" alt="Quran App"
+                                class="project-image">
+                            <div class="project-overlay">
+                                <span class="overlay-btn"><span>🔍</span> View Details</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Flutter</span><span class="tag">API</span><span
+                                class="tag">Audio</span></div>
+                        <h3><a href="{{ url_for('project_detail', project_id='quran_app') }}">☪️ Quran App</a></h3>
+                        <p>A beautiful Quran reading application with multi-reciter audio, bookmarking, verse-by-verse
+                            translation, prayer times, and a clean Arabic-optimized UI for daily use.</p>
+                    </div>
+                </div>
+
+                <!-- Instagram Clone -->
+                <div class="project-card reveal" data-category="flutter" style="animation-delay:.05s">
+                    <a href="{{ url_for('project_detail', project_id='instagram_clone') }}" class="project-link">
+                        <div class="project-img-wrap">
+                            <img src="{{ url_for('static', filename='images/instagram_clone.png') }}"
+                                alt="Instagram Clone" class="project-image">
+                            <div class="project-overlay">
+                                <span class="overlay-btn"><span>🔍</span> View Details</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Flutter</span><span class="tag">Firebase</span><span
+                                class="tag">Storage</span></div>
+                        <h3><a href="{{ url_for('project_detail', project_id='instagram_clone') }}">📷 Instagram
+                                Clone</a></h3>
+                        <p>A social media clone replicating Instagram's core features: photo uploading, stories, likes &
+                            comments, real-time notifications, user following, and a dynamic explore feed.</p>
+                    </div>
+                </div>
+
+                <!-- Camera Surveillance -->
+                <div class="project-card reveal" data-category="python" style="animation-delay:.15s">
+                    <a href="{{ url_for('project_detail', project_id='camera_app') }}" class="project-link">
+                        <div class="project-img-wrap">
+                            <img src="{{ url_for('static', filename='images/camera_app.png') }}"
+                                alt="Camera Surveillance" class="project-image">
+                            <div class="project-overlay">
+                                <span class="overlay-btn"><span>🔍</span> View Details</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span
+                                class="tag">Flask</span></div>
+                        <h3><a href="{{ url_for('project_detail', project_id='camera_app') }}">📹 Surveillance</a></h3>
+                        <p>A smart surveillance system powered by Python and OpenCV for real-time motion detection,
+                            recording, and live streaming. Features an admin dashboard for monitoring multiple camera
+                            feeds.</p>
+                    </div>
+                </div>
+
+                <!-- Farmer App -->
+                <div class="project-card reveal" data-category="flutter" style="animation-delay:.25s">
+                    <a href="{{ url_for('project_detail', project_id='farmer_app') }}" class="project-link">
+                        <div class="project-img-wrap">
+                            <img src="{{ url_for('static', filename='images/farmer_app.png') }}" alt="Farmer App"
+                                class="project-image">
+                            <div class="project-overlay">
+                                <span class="overlay-btn"><span>🔍</span> View Details</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Flutter</span><span class="tag">SQLite</span><span
+                                class="tag">Maps</span></div>
+                        <h3><a href="{{ url_for('project_detail', project_id='farmer_app') }}">🌾 Farmer App</a></h3>
+                        <p>An agricultural platform enabling farmers to rent/lend equipment, manage reservations, and
+                            view machinery on an interactive map. Supports multi-language (Arabic/French) and PDF
+                            invoice generation.</p>
+                    </div>
+                </div>
+
+                <!-- Cooperative App -->
+                <div class="project-card reveal" data-category="flutter" style="animation-delay:.1s">
+                    <a href="{{ url_for('project_detail', project_id='cooperative_app') }}" class="project-link">
+                        <div class="project-img-wrap">
+                            <img src="{{ url_for('static', filename='images/farmer_app.png') }}" alt="Cooperative App"
+                                class="project-image">
+                            <div class="project-overlay">
+                                <span class="overlay-btn"><span>🔍</span> View Details</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Flutter</span><span
+                                class="tag">PostgreSQL</span><span class="tag">Flask</span></div>
+                        <h3><a href="{{ url_for('project_detail', project_id='cooperative_app') }}">🤝 Cooperative
+                                App</a></h3>
+                        <p>A cooperative management system for agricultural cooperatives to manage members, track
+                            shares, publish equipment for rent, handle reservations, and generate financial reports.</p>
+                    </div>
+                </div>
+
+                <!-- Auto Parts App -->
+                <div class="project-card reveal" data-category="flutter" style="animation-delay:.2s">
+                    <a href="{{ url_for('project_detail', project_id='autoparts_app') }}" class="project-link">
+                        <div class="project-img-wrap">
+                            <img src="{{ url_for('static', filename='images/autoparts_app.png') }}" alt="Auto Parts App"
+                                class="project-image">
+                            <div class="project-overlay">
+                                <span class="overlay-btn"><span>🔍</span> View Details</span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="project-info">
+                        <div class="project-tags"><span class="tag">Flutter</span><span
+                                class="tag">PostgreSQL</span><span class="tag">Python</span></div>
+                        <h3><a href="{{ url_for('project_detail', project_id='autoparts_app') }}">🔧 Auto Parts App</a>
+                        </h3>
+                        <p>An e-commerce platform for automotive parts with product catalog, advanced search &
+                            filtering, shopping cart, order tracking, seller dashboard, and secure payment integration.
+                        </p>
+                    </div>
+                </div>
+
+            </div><!-- end .projects-grid -->
+        </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="section section-alt" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Get in touch</span>
+                <h2>Contact Me</h2>
+            </div>
+            <div class="contact-wrap">
+                <div class="contact-info reveal">
+                    <h3>Let's work together 🚀</h3>
+                    <p>I'm currently available for freelance projects and full-time opportunities. Feel free to reach
+                        out!</p>
+                    <div class="contact-links">
+                        <a href="https://www.facebook.com/share/18GdhFpFFv/" target="_blank" class="contact-link"
+                            rel="noopener">
+                            <span class="contact-link-icon">👤</span>
+                            <span>Facebook Profile</span>
+                        </a>
+                        <a href="mailto:kadariyoucef@gmail.com" class="contact-link">
+                            <span class="contact-link-icon">📧</span>
+                            <span>kadariyoucef@gmail.com</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/kadari-youcef-95b31536b" target="_blank"
+                            class="contact-link" rel="noopener">
+                            <span class="contact-link-icon">💼</span>
+                            <span>LinkedIn Profile</span>
+                        </a>
+                    </div>
+                </div>
+                <form class="contact-form reveal" id="contactForm" style="animation-delay:.15s">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required
+                            autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project…"
+                            required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full" id="submitBtn">
+                        <span>Send Message ✈️</span>
+                    </button>
+                    <div class="form-success" id="formSuccess" style="display:none">
+                        ✅ Message sent! I'll get back to you soon.
+                    </div>
+                    <div class="form-error" id="formError" style="display:none">
+                        ❌ Something went wrong. Please try again.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-logo">KY<span>.</span></div>
+                <p class="footer-copy">© 2026 Kadari Youcef. All rights reserved.</p>
+                <div class="footer-socials">
+                    <a href="https://www.facebook.com/share/18GdhFpFFv/" target="_blank" aria-label="Facebook"
+                        class="social-icon" rel="noopener">👤</a>
+                    <a href="https://www.linkedin.com/in/kadari-youcef-95b31536b" target="_blank" aria-label="LinkedIn"
+                        class="social-icon" rel="noopener">💼</a>
+                    <a href="mailto:kadariyoucef@gmail.com" aria-label="Email" class="social-icon">📧</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Language Switcher -->
+    <div class="lang-switcher">
+        <button id="langToggle" class="lang-btn">
+            <span class="lang-text">FR</span>
+            <span class="lang-icon">🌐</span>
+        </button>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+
+</html>
